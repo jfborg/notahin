@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ef6b27" />
+    <meta name="description" content="A private project timer and notebook." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <title>Notahin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">N</span><span>Notahin</span></div>
+        <button class="new-project" id="newProject">+ New project</button>
+        <nav id="projectList" aria-label="Projects"></nav>
+        <div class="sidebar-foot">Time, noted.</div>
+      </aside>
+
+      <section class="workspace" id="workspace">
+        <header class="topbar">
+          <input id="projectName" class="project-name" aria-label="Project name" />
+          <div class="top-actions">
+            <button class="secondary" id="exportExcel">Export Excel</button>
+            <button class="icon-button" id="deleteProject" aria-label="Delete project" title="Delete project">⌫</button>
+          </div>
+        </header>
+
+        <section class="timer-card" aria-live="polite">
+          <div class="timer-icon" id="timerIcon">◷</div>
+          <div>
+            <div class="timer-value" id="timerValue">00h 00m 00s</div>
+            <div class="timer-caption" id="timerCaption">Ready to track</div>
+          </div>
+          <button class="clock-button" id="toggleTimer">Start clock</button>
+        </section>
+
+        <section class="notebook-section">
+          <div class="section-heading"><h1>Project notebook</h1><span>Completed timers are added here automatically.</span></div>
+          <textarea id="notes" placeholder="Add project notes, decisions, or next steps…"></textarea>
+        </section>
+
+        <section class="activity-section">
+          <div class="section-heading"><h2>Recorded sessions</h2><span id="recordedTotal"></span></div>
+          <div id="sessions" class="sessions"></div>
+        </section>
+      </section>
+    </main>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
